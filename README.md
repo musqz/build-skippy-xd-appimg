@@ -96,6 +96,7 @@ chmod +x appimagetool-x86_64.AppImage
 ./appimagetool-x86_64.AppImage --help
 ```
 
+Create Skippy-XD-x86_64.AppImage (64bit/32bit).
 
 ```bash
 [64bit]
