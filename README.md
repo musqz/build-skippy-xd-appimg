@@ -1,4 +1,4 @@
-# Skippy-XD AppImage Build It Yourself.
+# Skippy-XD AppImage Build It Yourself
 
 [Official Skippy-XD Git Repository (Felix Fung)](https://github.com/felixfung/skippy-xd)
 
@@ -10,14 +10,13 @@ The AppImage works on most modern Linux distributions (Debian/Ubuntu, Fedora, Ar
 ---
 
 ## Table of Contents
-- [Prerequisites](#prerequisites)
-- [Building the AppImage](#building-the-appimage)
-- [Running the AppImage](#running-the-appimage)
-- [Updating the Binary](#updating-the-binary)
-- [First-Time Run and Configuration](#first-time-run-and-configuration)
-- [License](#license)
-
----
+        - [Prerequisites](#prerequisites)
+        - [Building the AppImage](#building-the-appimage)
+          - [64-bit Build](#64-bit-build)
+          - [32-bit Build](#32-bit-build)
+        - [Running the AppImage](#running-the-appimage)
+        - [Updating the Binary / RC File](#updating-the-binary--rc-file)
+        - [License](#license)
 
 ## Prerequisites
 
@@ -25,12 +24,13 @@ The AppImage works on most modern Linux distributions (Debian/Ubuntu, Fedora, Ar
 ```bash
 sudo apt update
 sudo apt install -y git build-essential wget xz-utils squashfs-tools libfuse2
+sudo apt install -y gcc-multilib g++-multilib libc6-dev-i386 lib32z1 # For 32-bit build
 ````
 
 ### Fedora
 
 ```bash
-sudo dnf install -y git make gcc wget xz squashfs-tools fuse-libs
+sudo dnf install -y git make gcc wget xz squashfs-tools fuse-libs glibc-devel.i686
 ```
 
 ### Arch / Manjaro
@@ -55,46 +55,59 @@ cd build-skippy-xd-appimg
 ```bash
 git clone https://github.com/felixfung/skippy-xd.git temp_build
 cd temp_build
+```
+
+3. **Build and install into the AppDir for 64-bit**
+
+```bash
 make
-cd ..
+make DESTDIR=../skippy-xd.AppDir/usr install
 ```
 
-3. **Copy the new binary into the AppDir**
+4. **Optional: Build 32-bit version**
 
 ```bash
-cp temp_build/skippy-xd skippy-xd.AppDir/usr/bin/
-chmod +x skippy-xd.AppDir/usr/bin/skippy-xd
+make clean
+make CFLAGS="-m32" LDFLAGS="-m32"
+make DESTDIR=../skippy-xd.AppDir-i386/usr install
 ```
 
-4. **Ensure AppRun is executable**
+5. **Ensure AppRun and binary permissions**
 
 ```bash
-chmod +x skippy-xd.AppDir/AppRun
-# If on Windows subsystem or downloaded with CRLF endings
-dos2unix skippy-xd.AppDir/AppRun
+[64bit]
+chmod +x ../skippy-xd.AppDir/AppRun
+chmod +x ../skippy-xd.AppDir/usr/bin/skippy-xd
+
+[32bit]
+chmod +x ../skippy-xd.AppDir-i386/AppRun
+chmod +x ../skippy-xd.AppDir-i386/usr/bin/skippy-xd
 ```
 
-5. **Build the AppImage**
+6. **Build the AppImages**
 
 ```bash
-./appimagetool-x86_64.AppImage skippy-xd.AppDir build/Skippy-XD.AppImage
+./appimagetool-x86_64.AppImage skippy-xd.AppDir build/Skippy-XD-x86_64.AppImage
+./appimagetool-i686.AppImage skippy-xd.AppDir-i386 build/Skippy-XD-i386.AppImage
 ```
 
-6. **Clean up**
+7. **Clean up**
 
 ```bash
 rm -rf temp_build
 ```
 
-Now you have `build/Skippy-XD.AppImage` ready to use.
+Now you have `build/Skippy-XD-x86_64.AppImage` and `build/Skippy-XD-i386.AppImage` ready to use.
 
 ---
 
 ## Running the AppImage
 
 ```bash
-chmod +x build/Skippy-XD.AppImage
-./build/Skippy-XD.AppImage
+chmod +x build/Skippy-XD-*.AppImage
+./build/Skippy-XD-x86_64.AppImage
+# or
+./build/Skippy-XD-i386.AppImage
 ```
 
 * No root or installation required.
@@ -102,36 +115,23 @@ chmod +x build/Skippy-XD.AppImage
 
 ---
 
-## Updating the Binary
+## Updating the Binary / RC File
 
-To get the latest Skippy-XD version from upstream:
+* The AppImage uses the RC file installed by `make install`:
 
-1. Re-run steps under **Building the AppImage**.
-2. Replace the old binary in `skippy-xd.AppDir/usr/bin/`.
-3. Rebuild the AppImage.
+  ```
+  usr/share/skippy-xd/skippy-xd.rc
+  ```
+* For first-time users, AppImage will pick up this RC file automatically.
+* Users can override settings by copying the RC file to:
 
----
-
-## First-Time Run and Configuration
-
-* Skippy-XD uses `skippy-xd.rc` for settings.
-* First-time run reads the configuration from:
-
-```
-/etc/xdg/skippy-xd.rc
-```
-
-* Users can override settings by copying it to:
-
-```
-~/.config/skippy-xd/skippy-xd.rc
-```
-
-* The AppImage will automatically pick up user-specific configuration if it exists.
+  ```
+  ~/.config/skippy-xd/skippy-xd.rc
+  ```
+* To update the binary and RC file, re-run the **Building the AppImage** steps.
 
 ---
 
 ## License
 
 MIT License. See [LICENSE](LICENSE) file.
-
