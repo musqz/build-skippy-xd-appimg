@@ -88,7 +88,7 @@ chmod +x ../skippy-xd.AppDir-i386/usr/bin/skippy-xd
 
 6. **Build the AppImages**
 
-Install the tool
+Install `appimagetool`.
 
 ```
 wget https://github.com/AppImage/AppImageKit/releases/download/continuous/appimagetool-x86_64.AppImage
