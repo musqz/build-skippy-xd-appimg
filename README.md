@@ -1,10 +1,10 @@
 # Skippy-XD AppImage Build It Yourself.
 
-[Official Skippy-xd Git Repository Felix Fung](https://github.com/felixfung/skippy-xd)
+[Official Skippy-XD Git Repository (Felix Fung)](https://github.com/felixfung/skippy-xd)
 
 ---
 
-This repository contains a portable **Skippy-XD AppImage**, an Exposé-style window switcher for X11.  
+This repository contains a files needed to create a **Skippy-XD AppImage**, an Exposé-style window switcher for X11.  
 The AppImage works on most modern Linux distributions (Debian/Ubuntu, Fedora, Arch, etc.) without installation.
 
 ---
