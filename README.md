@@ -62,6 +62,7 @@ cd temp_build
 ```bash
 make
 make DESTDIR=../skippy-xd.AppDir/usr install
+cd ..
 ```
 
 4. **Optional: Build 32-bit version**
@@ -70,6 +71,7 @@ make DESTDIR=../skippy-xd.AppDir/usr install
 make clean
 make CFLAGS="-m32" LDFLAGS="-m32"
 make DESTDIR=../skippy-xd.AppDir-i386/usr install
+cd ..
 ```
 
 5. **Ensure AppRun and binary permissions**
