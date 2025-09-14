@@ -10,13 +10,13 @@ The AppImage works on most modern Linux distributions (Debian/Ubuntu, Fedora, Ar
 ---
 
 ## Table of Contents
-        - [Prerequisites](#prerequisites)
-        - [Building the AppImage](#building-the-appimage)
-          - [64-bit Build](#64-bit-build)
-          - [32-bit Build](#32-bit-build)
-        - [Running the AppImage](#running-the-appimage)
-        - [Updating the Binary / RC File](#updating-the-binary--rc-file)
-        - [License](#license)
+- [Prerequisites](#prerequisites)
+- [Building the AppImage](#building-the-appimage)
+  - [64-bit Build](#64-bit-build)
+  - [32-bit Build](#32-bit-build)
+- [Running the AppImage](#running-the-appimage)
+- [Updating the Binary / RC File](#updating-the-binary--rc-file)
+- [License](#license)
 
 ## Prerequisites
 
