@@ -137,6 +137,15 @@ chmod +x build/Skippy-XD-*.AppImage
 
 ---
 
+Start Daemon first. 
+
+```
+Skippy-xd.AppImage --start-daemon
+```
+
+[Read Felic Fung github how to use skippy-xd.](https://github.com/felixfung/skippy-xd)
+
+
 ## License
 
 MIT License. See [LICENSE](LICENSE) file.
