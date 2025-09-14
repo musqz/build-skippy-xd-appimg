@@ -4,7 +4,7 @@
 
 ---
 
-This repository contains a files needed to create a **Skippy-XD AppImage**, an Exposé-style window switcher for X11.  
+This repository contains files and structure needed to create a **Skippy-XD AppImage**, an Exposé-style window switcher for X11.  
 The AppImage works on most modern Linux distributions (Debian/Ubuntu, Fedora, Arch, etc.) without installation.
 
 ---
