@@ -1,124 +1,133 @@
-# Skippy-XD AppImage Build Instructions
+# Skippy-XD AppImage
 
-This guide explains how to build the Skippy-XD AppImage for Linux manually, including dependencies for Debian/Ubuntu, Arch, and Fedora.
+This repository contains a portable **Skippy-XD AppImage**, an Exposé-style window switcher for X11.  
+The AppImage works on most modern Linux distributions (Debian/Ubuntu, Fedora, Arch, etc.) without installation.
+
+---
+
+## Table of Contents
+- [Prerequisites](#prerequisites)
+- [Building the AppImage](#building-the-appimage)
+- [Running the AppImage](#running-the-appimage)
+- [Updating the Binary](#updating-the-binary)
+- [First-Time Run and Configuration](#first-time-run-and-configuration)
+- [License](#license)
 
 ---
 
 ## Prerequisites
 
-### Debian/Ubuntu (x86_64)
-
+### Debian / Ubuntu
 ```bash
-sudo dpkg --add-architecture i386  # for 32-bit builds
 sudo apt update
-sudo apt install -y wget xz-utils squashfs-tools libfuse2:i386 libc6:i386 libstdc++6:i386
+sudo apt install -y git build-essential wget xz-utils squashfs-tools libfuse2
 ````
-
-### Arch Linux / Manjaro
-
-```bash
-sudo pacman -Syu --needed wget squashfs-tools fuse2
-```
 
 ### Fedora
 
 ```bash
-sudo dnf install -y wget squashfs-tools fuse
+sudo dnf install -y git make gcc wget xz squashfs-tools fuse-libs
+```
+
+### Arch / Manjaro
+
+```bash
+sudo pacman -S --needed git base-devel wget squashfs-tools fuse2
 ```
 
 ---
 
-## Get Appimagetool
+## Building the AppImage
 
-Download the latest AppImageKit `appimagetool` for your architecture:
-
-```bash
-wget -q "https://github.com/AppImage/AppImageKit/releases/download/continuous/appimagetool-x86_64.AppImage"
-chmod +x appimagetool-x86_64.AppImage
-mv appimagetool-x86_64.AppImage ./appimagetool
-```
-
-For 32-bit:
+1. **Clone this repository**
 
 ```bash
-wget -q "https://github.com/AppImage/AppImageKit/releases/download/continuous/appimagetool-i686.AppImage"
-chmod +x appimagetool-i686.AppImage
-mv appimagetool-i686.AppImage ./appimagetool
+git clone https://github.com/yourusername/skippy-xd-appimg.git
+cd skippy-xd-appimg
 ```
 
----
-
-## Prepare AppDir
-
-Ensure your `skippy-xd.AppDir` contains the following structure:
-
-```
-skippy-xd.AppDir/
-├── AppRun
-├── skippy-xd.desktop
-├── skippy-xd.png
-└── usr/
-    ├── bin/skippy-xd
-    ├── lib/  # required libraries
-    └── share/
-        ├── applications/skippy-xd.desktop
-        ├── icons/hicolor/256x256/apps/skippy-xd.png
-        └── metainfo/org.felixfung.SkippyXD.desktop.appdata.xml
-```
-
-Make binaries executable:
+2. **Download the latest upstream Skippy-XD**
 
 ```bash
-chmod +x skippy-xd.AppDir/AppRun
+git clone https://github.com/felixfung/skippy-xd.git temp_build
+cd temp_build
+make
+cd ..
+```
+
+3. **Copy the new binary into the AppDir**
+
+```bash
+cp temp_build/skippy-xd skippy-xd.AppDir/usr/bin/
 chmod +x skippy-xd.AppDir/usr/bin/skippy-xd
 ```
 
-> **Note:** If the AppRun script was edited on Windows, run `dos2unix AppRun` to fix line endings.
-
----
-
-## Build the AppImage
-
-Create a build folder:
+4. **Ensure AppRun is executable**
 
 ```bash
-mkdir -p build
+chmod +x skippy-xd.AppDir/AppRun
+# If on Windows subsystem or downloaded with CRLF endings
+dos2unix skippy-xd.AppDir/AppRun
 ```
 
-Build the AppImage:
-
-### 64-bit
+5. **Build the AppImage**
 
 ```bash
-./appimagetool skippy-xd.AppDir build/Skippy-XD-x86_64.AppImage
+./appimagetool-x86_64.AppImage skippy-xd.AppDir build/Skippy-XD.AppImage
 ```
 
-### 32-bit
+6. **Clean up**
 
 ```bash
-./appimagetool skippy-xd.AppDir build/Skippy-XD-i386.AppImage
+rm -rf temp_build
 ```
+
+Now you have `build/Skippy-XD.AppImage` ready to use.
 
 ---
 
 ## Running the AppImage
 
 ```bash
-./build/Skippy-XD-x86_64.AppImage
+chmod +x build/Skippy-XD.AppImage
+./build/Skippy-XD.AppImage
 ```
 
-* On first run, a default configuration is copied from `/etc/xdg/skippy-xd.rc` to:
-
-```
-$XDG_CONFIG_HOME/skippy-xd/skippy-xd.rc
-```
-
-* Users can edit their own configuration file to customize shortcuts and settings.
+* No root or installation required.
+* The AppImage is portable and can be copied anywhere.
 
 ---
 
-## Notes
+## Updating the Binary
 
-* Ensure all required libraries are bundled in `usr/lib/` for maximum portability.
-* The `skippy-xd.png` icon must be in the AppDir root and referenced in `.desktop` without the `.png` extension.
-* This workflow produces AppImages compatible with multiple Linux distributions (Debian, Ubuntu, Arch, Fedora).
+To get the latest Skippy-XD version from upstream:
+
+1. Re-run steps under **Building the AppImage**.
+2. Replace the old binary in `skippy-xd.AppDir/usr/bin/`.
+3. Rebuild the AppImage.
+
+---
+
+## First-Time Run and Configuration
+
+* Skippy-XD uses `skippy-xd.rc` for settings.
+* First-time run reads the configuration from:
+
+```
+/etc/xdg/skippy-xd.rc
+```
+
+* Users can override settings by copying it to:
+
+```
+~/.config/skippy-xd/skippy-xd.rc
+```
+
+* The AppImage will automatically pick up user-specific configuration if it exists.
+
+---
+
+## License
+
+MIT License. See [LICENSE](LICENSE) file.
+
