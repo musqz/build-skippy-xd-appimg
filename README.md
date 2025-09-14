@@ -1,6 +1,6 @@
 # Skippy-XD AppImage Build It Yourself.
 
-[Official Git Repository](https://github.com/felixfung/skippy-xd)
+[Official Skippy-xd Git Repository Felix Fung](https://github.com/felixfung/skippy-xd)
 
 ---
 
