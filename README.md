@@ -1,7 +1,8 @@
 # Skippy-XD AppImage Version.
 
-[OFFICIAL GIT]
-#### https://github.com/felixfung/skippy-xd
+[Official Git Repository](https://github.com/felixfung/skippy-xd)
+
+---
 
 This repository contains a portable **Skippy-XD AppImage**, an Exposé-style window switcher for X11.  
 The AppImage works on most modern Linux distributions (Debian/Ubuntu, Fedora, Arch, etc.) without installation.
