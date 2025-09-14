@@ -46,8 +46,8 @@ sudo pacman -S --needed git base-devel wget squashfs-tools fuse2
 1. **Clone this repository**
 
 ```bash
-git clone https://github.com/yourusername/skippy-xd-appimg.git
-cd skippy-xd-appimg
+git clone https://github.com/musqz/build-skippy-xd-appimg.git
+cd build-skippy-xd-appimg
 ```
 
 2. **Download the latest upstream Skippy-XD**
