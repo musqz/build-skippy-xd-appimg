@@ -74,12 +74,14 @@ make DESTDIR=../skippy-xd.AppDir-i386/usr install
 
 5. **Ensure AppRun and binary permissions**
 
-```bash
 [64bit]
+```bash
 chmod +x ../skippy-xd.AppDir/AppRun
 chmod +x ../skippy-xd.AppDir/usr/bin/skippy-xd
+```
 
 [32bit]
+```
 chmod +x ../skippy-xd.AppDir-i386/AppRun
 chmod +x ../skippy-xd.AppDir-i386/usr/bin/skippy-xd
 ```
@@ -87,7 +89,10 @@ chmod +x ../skippy-xd.AppDir-i386/usr/bin/skippy-xd
 6. **Build the AppImages**
 
 ```bash
+[64bit]
 ./appimagetool-x86_64.AppImage skippy-xd.AppDir build/Skippy-XD-x86_64.AppImage
+
+[32bit]
 ./appimagetool-i686.AppImage skippy-xd.AppDir-i386 build/Skippy-XD-i386.AppImage
 ```
 
@@ -97,7 +102,7 @@ chmod +x ../skippy-xd.AppDir-i386/usr/bin/skippy-xd
 rm -rf temp_build
 ```
 
-Now you have `build/Skippy-XD-x86_64.AppImage` and `build/Skippy-XD-i386.AppImage` ready to use.
+Now you have `build/Skippy-XD-x86_64.AppImage` or `build/Skippy-XD-i386.AppImage` ready to use.
 
 ---
 
