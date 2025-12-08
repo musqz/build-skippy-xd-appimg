@@ -132,7 +132,7 @@ chmod +x build/Skippy-XD-*.AppImage
 
 ---
 
-## Updating the Binary / RC File
+## Updating the RC File
 
 * The AppImage uses the RC file installed by `make install`:
 
@@ -145,7 +145,6 @@ chmod +x build/Skippy-XD-*.AppImage
   ```
   ~/.config/skippy-xd/skippy-xd.rc
   ```
-* To update the binary and RC file, re-run the **Building the AppImage** steps.
 
 ---
 
