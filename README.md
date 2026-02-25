@@ -41,7 +41,7 @@ Script will ask for confirmation, then build. Output: build/Skippy-XD-x86_64.App
 
 ## Usage
 Make Executable
-``
+
 ```
 chmod +x Skippy-XD-x86_64.AppImage
 ```
