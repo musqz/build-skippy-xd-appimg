@@ -57,22 +57,11 @@ fi
 # --- Step 2: Prepare Dirs ---
 log_info "Setting up build directories..."
 
-if [ -d "$BUILD_DIR" ]; then
-    log_info "Using existing local folder: $BUILD_DIR"
-    cd "$BUILD_DIR"
-    if [ -d ".git" ]; then
-        git pull
-    fi
-else
-    log_info "Cloning skeleton from GitHub..."
-    mkdir -p "$BUILD_DIR"
-    cd "$BUILD_DIR"
-    git clone https://github.com/musqz/build-skippy-xd-appimg.git .
-fi
+# Check if temp_build exists from previous run, remove if so
+[ -d "$TEMP_BUILD_DIR" ] && rm -rf "$TEMP_BUILD_DIR"
 
 # Get latest skippy-xd source
 log_info "Fetching latest skippy-xd source..."
-[ -d "$TEMP_BUILD_DIR" ] && rm -rf "$TEMP_BUILD_DIR"
 
 git clone --depth 1 https://github.com/felixfung/skippy-xd.git "$TEMP_BUILD_DIR"
 
@@ -80,6 +69,7 @@ log_info "Latest skippy-xd commit:"
 cd "$TEMP_BUILD_DIR"
 git log -1 --oneline
 cd ..
+
 
 # --- Step 3: Clean AppDir ---
 log_info "Cleaning AppDir for fresh build..."
