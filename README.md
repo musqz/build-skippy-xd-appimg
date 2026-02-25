@@ -1,5 +1,5 @@
 
-# Automatic skippy-xd AppImage Builder
+# Automatic skippy-xd AppImage Builder (64 bit only)
 
 Build the latest Skippy-XD as a portable AppImage.
 
@@ -28,7 +28,7 @@ sudo dnf install -y git make gcc wget xz squashfs-tools fuse-libs
 sudo pacman -S --needed git base-devel wget squashfs-tools fuse2
 ```
 
-# Quick Start
+# Building Skippy-XD-x86_64.AppImage
 
 ```
 git clone https://github.com/musqz/build-skippy-xd-appimg.git
@@ -89,21 +89,3 @@ Features
 License
 
 MIT License. See LICENSE file.
-
-
----
-
-**To use the script:**
-
-```bash
-git clone https://github.com/musqz/build-skippy-xd-appimg.git
-cd build-skippy-xd-appimg
-./build-skippy-xd-appimg.sh
-```
-
-To run the AppImage:
-
-```
-chmod +x build/Skippy-XD-x86_64.AppImage
-./build/Skippy-XD-x86_64.AppImage --start-daemon
-```
