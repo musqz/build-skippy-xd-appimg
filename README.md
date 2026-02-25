@@ -84,6 +84,6 @@ License
 
 MIT License. See LICENSE file.
 
-### Get email when there is a new release
+### Get email when there is a new skippy-xd release
 
 https://newreleases.io/github/felixfung/skippy-xd
