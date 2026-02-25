@@ -1,5 +1,6 @@
 
-# Automatic skippy-xd AppImage Builder (64 bit only)
+# Automatic skippy-xd AppImage Builder 
+(64 bit only)
 
 Build the latest Skippy-XD as a portable AppImage.
 
