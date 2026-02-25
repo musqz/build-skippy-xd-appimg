@@ -10,9 +10,13 @@ Build the latest Skippy-XD as a portable AppImage.
 
 ## What is this?
 
-This script automates building the latest Skippy-XD from source and packaging it as an AppImage. No manual steps required—just run it and get your AppImage.
+This script automates building the latest Skippy-XD from source and packaging it as an AppImage. 
 
-## Prerequisites
+No manual steps required—just run it and get your AppImage.
+
+## Prerequisites 
+
+[These are automaticly installed with the script if not already]()
 
 ### Debian/Ubuntu
 ```bash
