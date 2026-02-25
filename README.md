@@ -34,7 +34,7 @@ sudo dnf install -y git make gcc wget xz squashfs-tools fuse-libs
 sudo pacman -S --needed git base-devel wget squashfs-tools fuse2
 ```
 
-# Building Skippy-XD-x86_64.AppImage
+## Building Skippy-XD-x86_64.AppImage
 
 ```
 git clone https://github.com/musqz/build-skippy-xd-appimg.git
