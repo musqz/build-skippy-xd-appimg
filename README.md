@@ -16,7 +16,7 @@ No manual steps required—just run it and get your AppImage.
 
 ## Prerequisites 
 
-[These are automaticly installed with the script if not already]()
+[These are automaticly installed with the script if not already](https://github.com/musqz/build-skippy-xd-appimg/blob/c6c35b9bd8e57efedfa4b256858bf951c48ec758/build-skippyxd-AppImage.sh#L37)
 
 ### Debian/Ubuntu
 ```bash
