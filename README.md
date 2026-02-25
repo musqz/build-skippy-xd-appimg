@@ -72,7 +72,7 @@ Features
 
     Always up-to-date: Builds from latest GitHub commit
     Portable: No installation needed
-    Manpage included: Use --help-man to view
+    Manpage included: Use --help-man to view man page
     Auto-cleanup: Removes temporary build files
 
 License
