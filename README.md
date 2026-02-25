@@ -83,3 +83,7 @@ Features
 License
 
 MIT License. See LICENSE file.
+
+### Get email when there is a new release
+
+https://newreleases.io/github/felixfung/skippy-xd

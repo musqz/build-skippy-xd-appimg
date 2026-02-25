@@ -1,0 +1,8 @@
+[Desktop Entry]
+Name=Skippy-XD
+Comment=Expose-style window switcher for X11
+Exec=skippy-xd --start-daemon
+Icon=skippy-xd
+Terminal=false
+Type=Application
+Categories=Utility;
