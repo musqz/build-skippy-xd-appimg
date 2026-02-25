@@ -19,17 +19,17 @@ No manual steps required—just run it and get your AppImage.
 **These are automaticly installed with the script if not already**
 
 
-### Debian/Ubuntu
+##### Debian/Ubuntu
 ```bash
 sudo apt update && sudo apt install -y git build-essential wget xz-utils squashfs-tools libfuse2
 ```
 
-### Fedora
+##### Fedora
 ```bash
 sudo dnf install -y git make gcc wget xz squashfs-tools fuse-libs
 ```
 
-### Arch/Manjaro
+##### Arch/Manjaro
 ```bash
 sudo pacman -S --needed git base-devel wget squashfs-tools fuse2
 ```
