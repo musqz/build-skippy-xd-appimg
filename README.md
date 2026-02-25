@@ -16,8 +16,6 @@ No manual steps required—just run it and get your AppImage.
 
 ## Prerequisites 
 
-**These are automaticly installed with the script if not already**
-
 
 ### Debian/Ubuntu
 ```bash
