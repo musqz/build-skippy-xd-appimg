@@ -60,18 +60,6 @@ chmod +x Skippy-XD-x86_64.AppImage
 ./Skippy-XD-x86_64.AppImage --appimage-extract
 ```
 
-## Configuration
-
-A default config file is included in the repo: `skippy-xd.rc`
-
-To customize, copy to your user config directory:
-
-```bash
-mkdir -p ~/.config/skippy-xd
-cp skippy-xd.rc ~/.config/skippy-xd/skippy-xd.rc
-# Edit ~/.config/skippy-xd/skippy-xd.rc
-```
-
 How It Works
 
     Detects your OS and installs build dependencies
