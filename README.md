@@ -18,6 +18,7 @@ No manual steps required—just run it and get your AppImage.
 
 **These are automaticly installed with the script if not already**
 
+
 ### Debian/Ubuntu
 ```bash
 sudo apt update && sudo apt install -y git build-essential wget xz-utils squashfs-tools libfuse2
